@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solicitacoes versao="20090801" datahora="06/06/2017 13:47:43" operador="RISO" lis="Softlab">
+   <entidade codigo="14392" chave="4890a6d230e7ff74">
+      <pacientes>
+         <paciente nome="Domingos de Oliveira" codigo_lis="12077887" datanasc="09/10/2010" sexo="F" />
+      </pacientes>
+      <medicos>
+         <medico crm="1434-AC" nome="Marcos Santana" />
+      </medicos>
+      <solicitacao codigo_lis="107310384" codigo_paciente="12077887" crm="1434-AC" data="27/06/2017">
+         <amostra descricao="Basal" material="543">
+            <exame codigo="TEGHCLONID" id_lis="46284430" />
+         </amostra>
+      </solicitacao>
+      <solicitacao codigo_lis="107310392" codigo_paciente="12077887" crm="1434-AC" data="27/06/2017">
+         <amostra descricao="30 min" material="543">
+            <exame codigo="TEGHCLONID" id_lis="46284430" />
+         </amostra>
+      </solicitacao>
+      <solicitacao codigo_lis="107310406" codigo_paciente="12077887" crm="1434-AC" data="27/06/2017">
+         <amostra descricao="60 min" material="543">
+            <exame codigo="TEGHCLONID" id_lis="46284430" />
+         </amostra>
+      </solicitacao>
+      <solicitacao codigo_lis="107310414" codigo_paciente="12077887" crm="1434-AC" data="27/06/2017">
+         <amostra descricao="90 min" material="543">
+            <exame codigo="TEGHCLONID" id_lis="46284430" />
+         </amostra>
+      </solicitacao>
+      <solicitacao codigo_lis="107310422" codigo_paciente="12077887" crm="1434-AC" data="27/06/2017">
+         <amostra descricao="120 min" material="543">
+            <exame codigo="TEGHCLONID" id_lis="46284430" />
+         </amostra>
+      </solicitacao>
+   </entidade>
+</solicitacoes>
