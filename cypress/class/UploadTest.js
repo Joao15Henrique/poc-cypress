@@ -15,23 +15,34 @@ class UploadTest {
   }
 
   uploadAValidXml () {
+    let instance = this
     cy.get('#btnDashboardUpload').click()
     cy.contains('Upload de Arquivo XML')
     cy.fixture('xml/teste.xml').then(function (xml) {
-      const resultXml = UploadTest.replaceRandomLisCode(xml, this._lisCode)
-      cy.uploadString(resultXml, this._xmlFileName, this._xmlFileType, '#fileToUpload')
+      const resultXml = UploadTest.replaceRandomLisCode(xml, instance._lisCode)
+      cy.uploadString(resultXml, instance._xmlFileName, instance._xmlFileType, '#fileToUpload')
       cy.get('#modDashboardComponents').contains('Realizando upload do arquivo…')
     })
   }
 
   searchForOsByLisCode () {
-    this.uploadAValidXml()
-    this.enterLisCode(lisCode)
+    this.waitForLoadingOsList()
+    cy.get('#inputSearchBar').type(this._lisCode).type('{enter}')
     cy.contains('Listagem de Ordens de Serviço')
+    this.waitForLoadingOsList().click()
   }
 
   verifyOsIsValid () {
+    cy.get('.row-details').should('be.visible').contains(this._lisCode)
+  }
 
+  closeAllToaster () {
+    console.log('Closing all snack button...')
+    let snackBtnClose = document.getElementById('#snackBtnClose')
+    while (snackBtnClose) {
+      cy.get('#snackBtnClose').click()
+      snackBtnClose = document.getElementById('#snackBtnClose')
+    }
   }
 
   transferSelectedOs () {
