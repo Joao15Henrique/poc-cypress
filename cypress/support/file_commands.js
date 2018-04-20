@@ -1,12 +1,10 @@
-Cypress.Commands.add('upload_file', (fileName, selector) => {
+Cypress.Commands.add('uploadString', (content, fileName, fileType, selector) => {
   cy.get(selector).then(subject => {
-    cy.fixture(fileName).then((content) => {
-      const el = subject[0]
-      const testFile = new File([content], fileName, {type: 'text/xml'})
-      const dataTransfer = new DataTransfer()
+    const el = subject[0]
+    const testFile = new File([content], fileName, { type: fileType })
+    const dataTransfer = new DataTransfer()
 
-      dataTransfer.items.add(testFile)
-      el.files = dataTransfer.files
-    })
+    dataTransfer.items.add(testFile)
+    el.files = dataTransfer.files
   })
 })

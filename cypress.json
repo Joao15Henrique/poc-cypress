@@ -1,4 +1,6 @@
 {
   "baseUrl": "https://apoiob2b-frontend-dev.azurewebsites.net/",
-  "videoRecording": false
+  "videoRecording": false,
+  "viewportWidth": 1280,
+  "viewportHeight": 720
 }
