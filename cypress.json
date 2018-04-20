@@ -1,4 +1,5 @@
 {
   "baseUrl": "https://apoiob2b-frontend-dev.azurewebsites.net/",
-  "videoRecording": false
+  "videoRecording": false,
+  "defaultCommandTimeout":10000
 }
