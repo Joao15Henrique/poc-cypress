@@ -9,5 +9,10 @@
   "rules": {
     "arrow-parens": 0,
     "generator-star-spacing": 0
+  },
+  "globals": {
+      "then": true,
+      "given": true,
+      "when": true
   }
 }
