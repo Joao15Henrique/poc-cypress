@@ -44,9 +44,9 @@ Cypress.Commands.add('fillAdditionalExam', (fileName) => {
     cy.get('#txtNewSearchExam').type(orders.ADDITIONAL.name)
 
     cy.get('#resultsContainer > div:nth-child(1) > div > div').click()
-    
+
     cy.get(' #additionalField_0').type(orders.ADDITIONAL.value)
-  
+
     cy.get('#mainScroll').scrollTo('bottom')
     cy.get('#btnNewSubmitExam').click()
   })
