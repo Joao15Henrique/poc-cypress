@@ -17,6 +17,7 @@
 import './commands'
 import './login_commands'
 import './file_commands'
+import './manual_register_commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
