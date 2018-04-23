@@ -1,13 +1,13 @@
 Cypress.Commands.add('fillPatient', (fileName) => {
-  cy.fixture(fileName).then(function (orders) {
-    cy.get('#txtNewPatientName').type(orders.PATIENT.name)
-    cy.get('#txtNewPatientAge').type(orders.PATIENT.age)
+  cy.fixture('PATIENT').then(function (patient) {
+    cy.get('#txtNewPatientName').type(patient.name)
+    cy.get('#txtNewPatientAge').type(patient.age)
 
     cy.get('#cboNewSex').click()
     cy.get('#cboNewSex > div > div.multiselect__content-wrapper > ul > li:nth-child(2) > span > span').click()
 
-    cy.get('#txtNewDoctor').type(orders.PATIENT.doctor_name)
-    cy.get('#txtNewCRM').type(orders.PATIENT.crm)
+    cy.get('#txtNewDoctor').type(patient.doctor_name)
+    cy.get('#txtNewCRM').type(patient.crm)
     cy.get('#txtNewUF').click()
     cy.get('#txtNewUF > div > div.multiselect__content-wrapper').scrollTo('bottom')
     cy.get('#txtNewUF > div > div.multiselect__content-wrapper > ul > li:nth-child(26)').click()
@@ -15,39 +15,39 @@ Cypress.Commands.add('fillPatient', (fileName) => {
   })
 })
 
-Cypress.Commands.add('fillStandardExam', (fileName) => {
-  cy.fixture(fileName).then(function (orders) {
-    cy.get('#txtNewSearchExam').type(orders.STANDARD.name)
+Cypress.Commands.add('fillExam', (exam) => {
+  if (exam === 'TSH') {
+    cy.fillStandardExam()
+  } else if (exam === '17ALFCURVA') {
+    cy.fillCurveExam()
+  } else {
+    cy.fillAdditionalExam()
+  }
+})
 
+Cypress.Commands.add('fillStandardExam', () => {
+  cy.fixture('TSH').then(function (exam) {
+    cy.get('#txtNewSearchExam').type(exam.name)
     cy.get('#resultsContainer > div:nth-child(1) > div > div > div.search__result-text > span:nth-child(1)').click()
-
-    cy.get('#mainScroll').scrollTo('bottom')
-    cy.get('#btnNewSubmitExam').click()
+    cy.get('#btnNewSubmitExam').click({force: true})
   })
 })
 
-Cypress.Commands.add('fillCurveExam', (fileName) => {
-  cy.fixture(fileName).then(function (orders) {
-    cy.get('#txtNewSearchExam').type(orders.CURVE.name)
-
+Cypress.Commands.add('fillCurveExam', (exam) => {
+  cy.fixture('17ALFCURVA').then(function (exam) {
+    cy.get('#txtNewSearchExam').type(exam.name)
     cy.get('#resultsContainer > div:nth-child(1) > div > div > div.search__result-text > span:nth-child(1)').click()
-
-    cy.get('#chbxID101-377').click({force: true})
-
-    cy.get('#mainScroll').scrollTo('bottom')
-    cy.get('#btnNewSubmitExam').click()
+    cy.get('#examSearchContainer > div.new-exam > div.search-results__exams.exam-card-num-0 > div > div > div > div.md-layout.exam-curve__curves > div > div:nth-child(1) > label').click({force: true})
+    cy.get('#btnNewSubmitExam').click({force: true})
   })
 })
 
-Cypress.Commands.add('fillAdditionalExam', (fileName) => {
-  cy.fixture(fileName).then(function (orders) {
-    cy.get('#txtNewSearchExam').type(orders.ADDITIONAL.name)
-
+Cypress.Commands.add('fillAdditionalExam', (exam) => {
+  cy.fixture('OXALI').then(function (exam) {
+    cy.get('#txtNewSearchExam').type(exam.name)
     cy.get('#resultsContainer > div:nth-child(1) > div > div').click()
+    cy.get(' #additionalField_0').type(exam.value)
 
-    cy.get(' #additionalField_0').type(orders.ADDITIONAL.value)
-
-    cy.get('#mainScroll').scrollTo('bottom')
-    cy.get('#btnNewSubmitExam').click()
+    cy.get('#btnNewSubmitExam').click({force: true})
   })
 })
