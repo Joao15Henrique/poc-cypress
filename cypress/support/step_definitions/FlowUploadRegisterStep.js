@@ -1,5 +1,8 @@
-const UploadRegister = require('../class/UploadRegister')
-let LIS_CODE = new UploadRegister().lisCode
+let LIS_CODE = randomString()
+
+function randomString () {
+  return Math.random().toString(36).substring(2)
+}
 
 given('realizo um upload de XML para cadastrar uma ordem de serviço com o exame {string}', exam => {
   cy.uploadValidOs(LIS_CODE)
