@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/cypress verify && node_modules/.bin/cypress run",
-    "test-debug": "node_modules/.bin/cypress open"
+    "local": "export CYPRESS_NODE_ENV=local && node_modules/.bin/cypress verify && node_modules/.bin/cypress run",
+    "local-it": "export CYPRESS_NODE_ENV=local && node_modules/.bin/cypress open",
+
+    "dev": "export CYPRESS_NODE_ENV=dev && node_modules/.bin/cypress verify && node_modules/.bin/cypress run",
+    "dev-it": "export CYPRESS_NODE_ENV=dev && node_modules/.bin/cypress open"
   },
   "author": "",
   "license": "ISC",
