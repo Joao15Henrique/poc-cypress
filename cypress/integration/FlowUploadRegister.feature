@@ -2,9 +2,9 @@
 #encoding: utf-8
 
 @FlowManualRegister
-Funcionalidade: Fluxo de cadastro manual
+Funcionalidade: Fluxo de upload 
   COMO laboratório apoiado
-  EU QUERO realizar um fluxo completo de cadastro manual
+  EU QUERO realizar um fluxo completo de upload
   DE MODO QUE seja possível utilizar as funcionalidades do sistema de apoio DASA
 
   Esquema do Cenario: Fluxo completo com a funcionalidade de lote e impressão

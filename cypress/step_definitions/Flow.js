@@ -1,11 +1,9 @@
-let LIS_CODE = randomString()
+const Util = require('../class/Util')
+let lisCode = new Util().lisCode
 
-function randomString () {
-  return Math.random().toString(36).substring(2)
-}
-
-given('realizo um upload de XML para cadastrar uma ordem de serviço com o exame {string}', exam => {
-  cy.uploadValidOs(LIS_CODE)
+given('realizo o login no sistema Apoio', () => {
+  cy.clearCookie('token')
+  cy.login()
 })
 
 given('a ordem de serviço deve ser exibida na listagem de OS\'s', () => {
@@ -13,7 +11,7 @@ given('a ordem de serviço deve ser exibida na listagem de OS\'s', () => {
 })
 
 given('busco a ordem de serviço cadastrada', () => {
-  cy.searchForOsByLisCode(LIS_CODE)
+  cy.searchForOsByLisCode(lisCode)
 })
 
 given('vejo os exames da ordem de serviço', () => {
