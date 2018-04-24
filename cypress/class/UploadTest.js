@@ -8,23 +8,8 @@ class UploadTest {
     return UploadTest.instance
   }
 
-  searchForOsByLisCode () {
-    this.waitForLoadingOsList()
-    cy.get('#inputSearchBar').type(this._lisCode).type('{enter}')
-    this.waitForLoadingOsList().click()
-  }
-
-  verifyOsIsValid () {
-    cy.get('.row-details').should('be.visible').contains(this._lisCode)
-  }
-
-  closeAllToaster () {
-    console.log('Closing all snack button...')
-    let snackBtnClose = document.getElementById('#snackBtnClose')
-    while (snackBtnClose) {
-      cy.get('#snackBtnClose').click()
-      snackBtnClose = document.getElementById('#snackBtnClose')
-    }
+  static randomString () {
+    return Math.random().toString(36).substring(2)
   }
 }
 

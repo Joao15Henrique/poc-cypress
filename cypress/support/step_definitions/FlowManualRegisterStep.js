@@ -1,5 +1,5 @@
-import ManualRegister from '../../class/ManualRegister'
-let lisCode = ManualRegister.lisCode
+const ManualRegister = require('../class/ManualRegister')
+let lisCode = new ManualRegister().lisCode
 
 given('realizo o login no sistema Apoio', () => {
   cy.clearCookie('token')
