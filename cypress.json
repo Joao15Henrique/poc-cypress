@@ -1,8 +1,15 @@
 {
-  "baseUrl": "http://localhost:8080",
   "videoRecording": false,
   "defaultCommandTimeout": 40000,
   "viewportWidth": 1280,
   "viewportHeight": 720,
-  "projectId": "2xw5cr"
+  "projectId": "2xw5cr",
+  "env": {
+    "local": {
+      "baseUrl": "http://localhost:8080"
+    },
+    "dev": {
+      "baseUrl": "https://apoiob2b-frontend-dev.azurewebsites.net/"
+    }
+  }
 }

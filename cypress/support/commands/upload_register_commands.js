@@ -1,20 +1,6 @@
-const LIS_CODE = randomString()
-
-function randomString () {
-  return Math.random().toString(36).substring(2)
-}
-
 function replaceRandomLisCode (content, lisCode) {
   const STRING_TO_REPLACE = '#{codigo_lis}'
   return content.replace(new RegExp(STRING_TO_REPLACE, 'g'), lisCode)
-}
-
-function waitForLoadingOsList () {
-  return cy.get('.apoio-datatable > tbody:nth-child(2)')
-}
-
-function enterLisCode (lisCode) {
-  cy.get('#inputSearchBar').type(lisCode).type('{enter}')
 }
 
 Cypress.Commands.add('uploadString', (content, fileName, fileType, selector) => {
@@ -28,19 +14,13 @@ Cypress.Commands.add('uploadString', (content, fileName, fileType, selector) => 
   })
 })
 
-Cypress.Commands.add('uploadValidOs', xmlOs => {
+Cypress.Commands.add('uploadValidOs', (lisCode) => {
   const XML_FILE_NAME = 'content.xml'
   const XML_FILE_TYPE = 'text/xml'
   const SELECTOR = '#fileToUpload'
   cy.get('#btnDashboardUpload').click()
   cy.fixture('xml/teste.xml').then(xml => {
-    const resultXml = replaceRandomLisCode(xml, LIS_CODE)
+    const resultXml = replaceRandomLisCode(xml, lisCode)
     cy.uploadString(resultXml, XML_FILE_NAME, XML_FILE_TYPE, SELECTOR)
   })
-})
-
-Cypress.Commands.add('searchForOsByLisCode', () => {
-  waitForLoadingOsList()
-  enterLisCode(LIS_CODE)
-  waitForLoadingOsList().click()
 })

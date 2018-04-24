@@ -22,3 +22,6 @@ import './commands'
 Cypress.Cookies.defaults({
   whitelist: 'token'
 })
+
+const ENV = Cypress.env(Cypress.env('NODE_ENV'))
+Cypress.config('baseUrl', ENV.baseUrl)
