@@ -9,6 +9,4 @@ then('cadastro manualmente uma ordem de serviço com o exame {string}', exam => 
   cy.fillExam(exam)
 
   cy.get('#btnNewSave').click({force: true})
-
-  cy.url().should('eq', 'https://apoiob2b-frontend-dev.azurewebsites.net/orders?filterBy=PENDING_TRANSMIT')
 })
