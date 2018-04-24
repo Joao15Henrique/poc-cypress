@@ -1,4 +1,5 @@
-let codeLis = Math.random().toString(36).substring(2)
+import ManualRegister from '../../class/ManualRegister'
+let lisCode = ManualRegister.lisCode
 
 given('realizo o login no sistema Apoio', () => {
   cy.clearCookie('token')
@@ -8,7 +9,7 @@ given('realizo o login no sistema Apoio', () => {
 then('cadastro manualmente uma ordem de serviço com o exame {string}', exam => {
   cy.get('#btnMenuNewOrder').click()
 
-  cy.fillPatient(codeLis)
+  cy.fillPatient(lisCode)
   cy.fillExam(exam)
 
   cy.scrollTo(0, 500)
@@ -18,7 +19,7 @@ then('cadastro manualmente uma ordem de serviço com o exame {string}', exam => 
 })
 
 then('a ordem de serviço deve ser exibida na listagem de ordens', () => {
-  cy.get('#inputSearchBar').type(codeLis)
+  cy.get('#inputSearchBar').type(lisCode)
 
   cy.get('#btnSerachFilter').click()
 })
