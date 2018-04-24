@@ -1,6 +1,6 @@
 {
     "name": "PatientManualE2E",
-    "age": "17",
+    "age": 17,
     "gender": "Masculino",
     "doctor_name": "DoctorManualE2E",
     "crm": 998877,

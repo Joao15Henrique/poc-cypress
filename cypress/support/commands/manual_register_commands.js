@@ -1,7 +1,17 @@
+function birthday (age) {
+  var date = new Date()
+  var currentYear = date.getFullYear()
+  var nasYear = currentYear - age
+  date.setFullYear(nasYear)
+  return date
+}
+
 Cypress.Commands.add('fillPatient', (codeLis) => {
   cy.fixture('PATIENT').then(function (patient) {
     cy.get('#txtNewPatientName').type(patient.name)
     cy.get('#txtNewPatientAge').type(patient.age)
+    var date = birthday(patient.age)
+    cy.get('#dtNewBirthDate').type(date.toLocaleDateString('pt-BR'))
     cy.get('#txtNewPatientOSLIS').type(codeLis)
 
     cy.get('#cboNewSex').click()
