@@ -1,5 +1,4 @@
-// import ManualRegister from '../../class/ManualRegister'
-let lisCode = 212
+let lisCode = Math.random().toString(36).substring(2)
 
 given('realizo o login no sistema Apoio', () => {
   cy.clearCookie('token')
