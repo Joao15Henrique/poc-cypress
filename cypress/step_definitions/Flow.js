@@ -15,16 +15,17 @@ given('busco a ordem de serviço cadastrada', () => {
 })
 
 given('vejo os exames da ordem de serviço', () => {
-  cy.get('.row-details__container').contains('TESTE DE ESTÍMULO DO GH COM CLONIDINA - Basal')
+  cy.get('.row-details__container').should('be.visible')
 })
 
 given('transmito a ordem de serviço', () => {
+  closeAllSnack()
   cy.get('label[for="chkOrderSelectAllElement"]').click()
-  closeSnack()
-  closeSnack()
   cy.get('#BtnOrdersSend').click()
 })
 
-function closeSnack () {
-  cy.get('#snackBtnClose').click()
+function closeAllSnack () {
+  cy.get('.close-snack-container-btn').each($el => {
+    $el.click()
+  })
 }

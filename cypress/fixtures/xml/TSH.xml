@@ -9,7 +9,7 @@
       </medicos>
       <solicitacao codigo_lis="#{codigo_lis}" codigo_paciente="#{codigo_lis}" crm="1434-AC" data="27/06/2017">
          <amostra descricao="Basal" material="543">
-            <exame codigo="TEGHCLONID" id_lis="46284430" />
+            <exame codigo="TSH" id_lis="46284430" />
          </amostra>
       </solicitacao>
    </entidade>

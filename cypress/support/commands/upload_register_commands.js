@@ -14,13 +14,13 @@ Cypress.Commands.add('uploadString', (content, fileName, fileType, selector) => 
   })
 })
 
-Cypress.Commands.add('uploadValidOs', (lisCode) => {
-  const XML_FILE_NAME = 'content.xml'
+Cypress.Commands.add('uploadValidOs', (fileName, lisCode) => {
   const XML_FILE_TYPE = 'text/xml'
   const SELECTOR = '#fileToUpload'
+  fileName = 'xml/' + fileName + '.xml'
   cy.get('#btnDashboardUpload').click()
-  cy.fixture('xml/teste.xml').then(xml => {
+  cy.fixture(fileName).then(xml => {
     const resultXml = replaceRandomLisCode(xml, lisCode)
-    cy.uploadString(resultXml, XML_FILE_NAME, XML_FILE_TYPE, SELECTOR)
+    cy.uploadString(resultXml, fileName, XML_FILE_TYPE, SELECTOR)
   })
 })
