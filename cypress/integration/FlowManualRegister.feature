@@ -10,7 +10,7 @@ Funcionalidade: Fluxo de cadastro manual
   Esquema do Cenario: Fluxo completo com a funcionalidade de lote e impressão
     Quando realizo o login no sistema Apoio
     E cadastro manualmente uma ordem de serviço com o exame "<EXAME>"
-    E a ordem de serviço deve ser exibida na listagem de ordens
+    Então a ordem de serviço deve ser exibida na listagem de ordens
     # Quando busco a ordem de serviço cadastrada
     # E vejo os exames da ordem de serviço
     # E transmito a ordem de serviço
