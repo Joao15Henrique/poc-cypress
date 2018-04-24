@@ -1,7 +1,7 @@
 {
-  "baseUrl": "https://apoiob2b-frontend-dev.azurewebsites.net/",
+  "baseUrl": "http://localhost:8080",
   "videoRecording": false,
-  "defaultCommandTimeout":10000,
+  "defaultCommandTimeout": 40000,
   "viewportWidth": 1280,
   "viewportHeight": 720,
   "projectId": "2xw5cr"

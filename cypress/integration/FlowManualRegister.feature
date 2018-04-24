@@ -10,6 +10,7 @@ Funcionalidade: Fluxo de cadastro manual
   Esquema do Cenario: Fluxo completo com a funcionalidade de lote e impressão
     Quando realizo o login no sistema Apoio
     E cadastro manualmente uma ordem de serviço com o exame "<EXAME>"
+<<<<<<< Updated upstream
     E a ordem de serviço deve ser exibida na listagem de ordens
     # Quando busco a ordem de serviço cadastrada
     # E vejo os exames da ordem de serviço
@@ -25,6 +26,23 @@ Funcionalidade: Fluxo de cadastro manual
     # Quando transmito o lote
     # E imprimo a etiqueta do lote
     # Então a etiqueta do lote deve ser exibida
+=======
+    Então a ordem de serviço deve ser exibida na listagem de OS's
+    Quando busco a ordem de serviço cadastrada
+    E vejo os exames da ordem de serviço
+    E transmito a ordem de serviço
+    Então as amostras da OS transmitida devem ser exibidas na listagem de Amostras
+    Quando busco pelas amostras da ordem de serviço transmitida
+    Então as amostras processadas da ordem de serviço devem ser exibidas
+    Quando eu imprimo a etiqueta das amostras processadas
+    E gero o recibo das amostras
+    Então as etiquetas impressas da ordem de serviço devem ser exibidas
+    Quando busco o lote em que as amostras foram alocadas
+    Então as amostras alocadas no lote devem ser exibidas
+    Quando transmito o lote
+    E imprimo a etiqueta do lote
+    Então a etiqueta do lote deve ser exibida
+>>>>>>> Stashed changes
     Exemplos:
       | EXAME      |
       # | TSH        |
