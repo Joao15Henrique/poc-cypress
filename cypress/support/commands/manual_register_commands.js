@@ -1,7 +1,8 @@
-Cypress.Commands.add('fillPatient', (fileName) => {
+Cypress.Commands.add('fillPatient', (codeLis) => {
   cy.fixture('PATIENT').then(function (patient) {
     cy.get('#txtNewPatientName').type(patient.name)
     cy.get('#txtNewPatientAge').type(patient.age)
+    cy.get('#txtNewPatientOSLIS').type(codeLis)
 
     cy.get('#cboNewSex').click()
     cy.get('#cboNewSex > div > div.multiselect__content-wrapper > ul > li:nth-child(2) > span > span').click()
