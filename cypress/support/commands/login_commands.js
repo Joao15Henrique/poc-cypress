@@ -1,12 +1,6 @@
-const Util = require('../../class/Util')
-let util = new Util()
-
-Cypress.Commands.add('login', () => {
+Cypress.Commands.add('login', operator => {
   cy.visit('/login')
-  cy.fixture('operators').then(function (operators) {
-    cy.get('#txtLoginUser').type(operators.BILBO.email)
-    cy.get('#txtLoginPassword').type(operators.BILBO.password)
-    cy.get('#btnLoginSignIn').click()
-    util.laboratoryOriginKey(operators.BILBO.laboratoryOriginKey)
-  })
+  cy.get('#txtLoginUser').type(operator.email)
+  cy.get('#txtLoginPassword').type(operator.password)
+  cy.get('#btnLoginSignIn').click()
 })

@@ -19,9 +19,10 @@ Cypress.Commands.add('uploadString', (content, fileName, fileType, selector) => 
   })
 })
 
-Cypress.Commands.add('uploadValidOs', (fileName, lisCode, laboratoryOriginKey) => {
+Cypress.Commands.add('uploadValidOs', function (fileName, lisCode, laboratoryOriginKey) {
   const XML_FILE_TYPE = 'text/xml'
   const SELECTOR = '#fileToUpload'
+
   fileName = 'xml/' + fileName + '.xml'
   cy.get('#btnDashboardUpload').click()
   cy.fixture(fileName).then(xml => {

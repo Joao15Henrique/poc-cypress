@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solicitacoes versao="20090801" datahora="06/06/2017 13:47:43" operador="RISO" lis="Softlab">
-   <entidade codigo="14392" chave="6d11ec6a23ee0663">
+   <entidade codigo="14392" chave="#{laboratory_origin_key}">
       <pacientes>
          <paciente nome="Humberto E2E Upload" codigo_lis="#{codigo_lis}" datanasc="09/10/2010" sexo="F" />
       </pacientes>
