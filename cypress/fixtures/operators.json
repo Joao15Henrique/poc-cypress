@@ -2,5 +2,10 @@
   "BILBO": {
     "email": "bilbo.baggins@citlab.com",
     "password": "Testand0"
+  },
+  "JOSE": {
+    "email": "jose.oliveira@labac.com",
+    "password": "Testand0",
+    "laboratoryOriginKey": "43a20d90657d01c3"
   }
 }

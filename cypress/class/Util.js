@@ -11,6 +11,13 @@ class Util {
   randomString () {
     return Math.random().toString(36).substring(2)
   }
+
+  laboratoryOriginKey (lab) {
+    if (lab) {
+      this.laboratoryOriginKey = lab
+    }
+    return this.laboratoryOriginKey
+  }
 }
 
 export default Util

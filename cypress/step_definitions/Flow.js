@@ -19,13 +19,41 @@ given('vejo os exames da ordem de serviço', () => {
 })
 
 given('transmito a ordem de serviço', () => {
-  closeAllSnack()
+  cy.closeAllSnack()
   cy.get('label[for="chkOrderSelectAllElement"]').click()
   cy.get('#BtnOrdersSend').click()
 })
 
-function closeAllSnack () {
-  cy.get('.close-snack-container-btn').each($el => {
-    $el.click()
-  })
-}
+given('as amostras da OS transmitida devem ser exibidas na listagem de Amostras', () => {
+  cy.waitForModalLoading()
+  cy.get('.apoio-datatable__line').contains(lisCode)
+})
+
+given('busco pelas amostras da ordem de serviço transmitida', () => {
+  cy.get('#inputSearchBar').type(lisCode).type('{enter}')
+  cy.get('.os-lis-span').should('exist')
+  cy.get('.apoio-datatable__line').click()
+})
+
+given('as amostras processadas da ordem de serviço devem ser exibidas', () => {
+  cy.get('.row-details__container').should('exist')
+  cy.closeAllSnack()
+})
+
+given('gero o recibo das amostras', () => {
+  cy.get('.list-checkbox').click()
+  cy.get('#btnReceipt').click()
+  cy.get('.md-dialog').contains('Gerando recibo...')
+})
+
+given('eu imprimo a etiqueta das amostras processadas', () => {
+
+})
+
+given('as etiquetas impressas da ordem de serviço devem ser exibidas', () => {
+
+})
+
+given('busco o lote em que as amostras foram alocadas', () => {
+
+})

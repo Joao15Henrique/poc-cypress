@@ -1,6 +1,8 @@
 const Util = require('../class/Util')
-let lisCode = new Util().lisCode
+let util = new Util()
 
 given('realizo um upload de XML para cadastrar uma ordem de serviço com o exame {string}', exam => {
-  cy.uploadValidOs(exam, lisCode)
+  let lisCode = util.lisCode
+  let laboratoryOriginKey = util.laboratoryOriginKey()
+  cy.uploadValidOs(exam, lisCode, laboratoryOriginKey)
 })

@@ -2,7 +2,7 @@
 #encoding: utf-8
 
 @FlowManualRegister
-Funcionalidade: Fluxo de upload 
+Funcionalidade: Fluxo de upload
   COMO laboratório apoiado
   EU QUERO realizar um fluxo completo de upload
   DE MODO QUE seja possível utilizar as funcionalidades do sistema de apoio DASA

@@ -1,9 +1,14 @@
-function replaceRandomLisCode (content, lisCode) {
+function replace (content, lisCode, laboratoryOriginKey) {
   const STRING_TO_REPLACE = '#{codigo_lis}'
-  return content.replace(new RegExp(STRING_TO_REPLACE, 'g'), lisCode)
+  const LABORATORY_ORIGIN_KEY = '#{laboratory_origin_key}'
+
+  return content
+    .replace(new RegExp(STRING_TO_REPLACE, 'g'), lisCode)
+    .replace(new RegExp(LABORATORY_ORIGIN_KEY, 'g'), laboratoryOriginKey)
 }
 
 Cypress.Commands.add('uploadString', (content, fileName, fileType, selector) => {
+  console.log(content)
   cy.get(selector).then(subject => {
     const el = subject[0]
     const testFile = new File([content], fileName, { type: fileType })
@@ -14,13 +19,13 @@ Cypress.Commands.add('uploadString', (content, fileName, fileType, selector) => 
   })
 })
 
-Cypress.Commands.add('uploadValidOs', (fileName, lisCode) => {
+Cypress.Commands.add('uploadValidOs', (fileName, lisCode, laboratoryOriginKey) => {
   const XML_FILE_TYPE = 'text/xml'
   const SELECTOR = '#fileToUpload'
   fileName = 'xml/' + fileName + '.xml'
   cy.get('#btnDashboardUpload').click()
   cy.fixture(fileName).then(xml => {
-    const resultXml = replaceRandomLisCode(xml, lisCode)
+    const resultXml = replace(xml, lisCode, laboratoryOriginKey)
     cy.uploadString(resultXml, fileName, XML_FILE_TYPE, SELECTOR)
   })
 })
