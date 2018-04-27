@@ -54,9 +54,6 @@ given('as amostras processadas da ordem de serviço devem ser exibidas', () => {
 
 given('gero o recibo das amostras', () => {
   cy.get('.list-checkbox').click()
-  cy.get('#btnReceipt').click()
-  cy.get('.md-dialog').contains('Gerando recibo...').should('exist')
-  cy.get('.md-dialog').contains('Gerando recibo...').should('not.exist')
 })
 
 given('eu imprimo a etiqueta das amostras processadas', () => {
