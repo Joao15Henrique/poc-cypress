@@ -5,4 +5,5 @@ given('realizo um upload de XML para cadastrar uma ordem de serviço com o exame
   let lisCode = util.lisCode
   let laboratoryOriginKey = util.laboratoryOriginKey
   cy.uploadValidOs(exam, lisCode, laboratoryOriginKey)
+  cy.waitForUpload()
 })

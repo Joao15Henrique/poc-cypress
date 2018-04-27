@@ -1,9 +1,10 @@
 class Util {
-  constructor (laboratoryOriginKey) {
+  constructor (operator) {
     if (!Util.instance) {
       Util.instance = this
       this.lisCode = this.randomString()
-      this.laboratoryOriginKey = laboratoryOriginKey
+      this.laboratoryOriginKey = operator.laboratoryOriginKey
+      this.batchCodeMatch = operator.batchCodeMatch
     }
     return Util.instance
   }

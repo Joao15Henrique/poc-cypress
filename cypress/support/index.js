@@ -23,5 +23,11 @@ Cypress.Cookies.defaults({
   whitelist: 'token'
 })
 
+afterEach(function () {
+  if (this.currentTest.state === 'failed') {
+    Cypress.runner.stop()
+  }
+})
+
 const ENV = Cypress.env(Cypress.env('NODE_ENV'))
 Cypress.config('baseUrl', ENV.baseUrl)

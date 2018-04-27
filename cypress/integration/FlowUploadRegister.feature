@@ -25,6 +25,8 @@ Funcionalidade: Fluxo de upload
     Quando transmito o lote
     E imprimo a etiqueta do lote
     Então a etiqueta do lote deve ser exibida
+    Quando eu saio do sistema
+    Então devo ver a tela de Boas Vindas
     Exemplos:
       |EXAME|
       |TSH|

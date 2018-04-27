@@ -1,11 +1,14 @@
 {
   "BILBO": {
     "email": "bilbo.baggins@citlab.com",
-    "password": "Testand0"
+    "password": "Testand0",
+    "laboratoryOriginKey": "6d11ec6a23ee0663",
+    "batchCodeMatch": "LT0164"
   },
   "JOSE": {
     "email": "jose.oliveira@labac.com",
     "password": "Testand0",
-    "laboratoryOriginKey": "43a20d90657d01c3"
+    "laboratoryOriginKey": "43a20d90657d01c3",
+    "batchCodeMatch": "LT8776"
   }
 }

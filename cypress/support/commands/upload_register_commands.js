@@ -8,7 +8,6 @@ function replace (content, lisCode, laboratoryOriginKey) {
 }
 
 Cypress.Commands.add('uploadString', (content, fileName, fileType, selector) => {
-  console.log(content)
   cy.get(selector).then(subject => {
     const el = subject[0]
     const testFile = new File([content], fileName, { type: fileType })
@@ -29,4 +28,9 @@ Cypress.Commands.add('uploadValidOs', function (fileName, lisCode, laboratoryOri
     const resultXml = replace(xml, lisCode, laboratoryOriginKey)
     cy.uploadString(resultXml, fileName, XML_FILE_TYPE, SELECTOR)
   })
+})
+
+Cypress.Commands.add('waitForUpload', () => {
+  cy.get('.md-dialog').contains('Realizando upload do arquivo').should('exist')
+  cy.get('.md-dialog').contains('Realizando upload do arquivo').should('not.exist')
 })
