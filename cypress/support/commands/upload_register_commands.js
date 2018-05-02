@@ -18,19 +18,20 @@ Cypress.Commands.add('uploadString', (content, fileName, fileType, selector) => 
   })
 })
 
-Cypress.Commands.add('uploadValidOs', function (fileName, lisCode, laboratoryOriginKey) {
+Cypress.Commands.add('uploadValidOs', (fileName, lisCode, laboratoryOriginKey) => {
   const XML_FILE_TYPE = 'text/xml'
   const SELECTOR = '#fileToUpload'
 
-  fileName = 'xml/' + fileName + '.xml'
+  fileName = `xml/${fileName}.xml`
   cy.get('#btnDashboardUpload').click()
-  cy.fixture(fileName).then(xml => {
-    const resultXml = replace(xml, lisCode, laboratoryOriginKey)
-    cy.uploadString(resultXml, fileName, XML_FILE_TYPE, SELECTOR)
+  cy.fixture(fileName).then(content => {
+    const xml = replace(content, lisCode, laboratoryOriginKey)
+    cy.uploadString(xml, fileName, XML_FILE_TYPE, SELECTOR)
   })
 })
 
 Cypress.Commands.add('waitForUpload', () => {
   cy.get('.md-dialog').contains('Realizando upload do arquivo').should('exist')
   cy.get('.md-dialog').contains('Realizando upload do arquivo').should('not.exist')
+  cy.get('#btnDashboardUpload').should('not.exist')
 })

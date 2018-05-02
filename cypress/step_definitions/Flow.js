@@ -5,6 +5,7 @@ given('realizo o login no sistema Apoio', () => {
   cy.fixture('operators').then(function (operators) {
     cy.login(operators.JOSE)
     util = new Util(operators.JOSE)
+    util.lisCode = Util.randomString()
   })
 })
 
@@ -28,7 +29,7 @@ given('transmito a ordem de serviço', () => {
   cy.get('label[for="chkOrderSelectAllElement"]').click()
   cy.get('#BtnOrdersSend').click()
 
-  cy.wait(5000).then(() => {
+  cy.wait(3000).then(() => {
     if (Cypress.$('#btnStartTransfer').length > 0) {
       cy.get('#btnStartTransfer').click()
       cy.waitForModalLoading()
@@ -38,13 +39,14 @@ given('transmito a ordem de serviço', () => {
 
 given('as amostras da OS transmitida devem ser exibidas na listagem de Amostras', () => {
   cy.waitForLoader()
-  cy.get('.samples-list_container').contains(util.lisCode)
 })
 
 given('busco pelas amostras da ordem de serviço transmitida', () => {
   cy.get('#inputSearchBar').type(util.lisCode).type('{enter}')
   cy.get('.os-lis-span').should('exist')
-  cy.get('.apoio-datatable__line').click()
+  cy.get('.apoio-datatable__line').each($el => {
+    cy.wrap($el).click()
+  })
 })
 
 given('as amostras processadas da ordem de serviço devem ser exibidas', () => {

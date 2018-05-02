@@ -1,6 +1,6 @@
 {
   "videoRecording": true,
-  "defaultCommandTimeout": 40000,
+  "defaultCommandTimeout": 60000,
   "viewportWidth": 1280,
   "viewportHeight": 720,
   "projectId": "2xw5cr",

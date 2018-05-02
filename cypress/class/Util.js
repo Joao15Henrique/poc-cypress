@@ -2,14 +2,13 @@ class Util {
   constructor (operator) {
     if (!Util.instance) {
       Util.instance = this
-      this.lisCode = this.randomString()
-      this.laboratoryOriginKey = operator.laboratoryOriginKey
-      this.batchCodeMatch = operator.batchCodeMatch
+      Util.instance.laboratoryOriginKey = operator.laboratoryOriginKey
+      Util.instance.batchCodeMatch = operator.batchCodeMatch
     }
     return Util.instance
   }
 
-  randomString () {
+  static randomString () {
     return Math.random().toString(36).substring(2)
   }
 }

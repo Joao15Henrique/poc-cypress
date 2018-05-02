@@ -30,7 +30,7 @@ Funcionalidade: Fluxo de upload
     Exemplos:
       |EXAME|
       |TSH|
-  #     |17ALFCURVA|
+      |17ALFCURVA|
   #     |OXALI|
   #     |PAT|
   #

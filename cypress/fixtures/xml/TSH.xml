@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solicitacoes versao="20090801" datahora="06/06/2017 13:47:43" operador="RISO" lis="Softlab">
-   <entidade codigo="14392" chave="#{laboratory_origin_key}">
-      <pacientes>
-         <paciente nome="E2E Upload #{codigo_lis}" codigo_lis="#{codigo_lis}" datanasc="09/10/2010" sexo="F" />
-      </pacientes>
-      <medicos>
-         <medico crm="1434-AC" nome="E2E Medico" />
-      </medicos>
-      <solicitacao codigo_lis="#{codigo_lis}" codigo_paciente="#{codigo_lis}" crm="1434-AC" data="27/06/2017">
-         <amostra descricao="Basal" material="543">
-            <exame codigo="TSH" id_lis="46284430" />
-         </amostra>
-      </solicitacao>
-   </entidade>
+  <entidade codigo="14392" chave="#{laboratory_origin_key}">
+    <pacientes>
+      <paciente nome="E2E Upload #{codigo_lis}" codigo_lis="#{codigo_lis}" datanasc="09/10/2010" sexo="F"/>
+    </pacientes>
+    <medicos>
+      <medico crm="1434-AC" nome="E2E Medico"/>
+    </medicos>
+    <solicitacao codigo_lis="#{codigo_lis}" codigo_paciente="#{codigo_lis}" crm="1434-AC" data="27/06/2017">
+      <amostra descricao="Basal" material="543">
+        <exame codigo="TSH" id_lis="46284430"/>
+      </amostra>
+    </solicitacao>
+  </entidade>
 </solicitacoes>
