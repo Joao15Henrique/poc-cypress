@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Quality Assurance - E2E Tests') {
       steps {
-        sh 'ls -la'
+        sh 'cypress run --env NODE_ENV=dev'
       }
     }
   }
