@@ -25,8 +25,8 @@ given('vejo os exames da ordem de serviço', () => {
 })
 
 given('transmito a ordem de serviço', () => {
-  cy.closeAllSnack()
   cy.get('label[for="chkOrderSelectAllElement"]').click()
+  cy.closeAllSnack()
   cy.get('#BtnOrdersSend').click()
 
   cy.wait(3000).then(() => {
@@ -55,7 +55,9 @@ given('as amostras processadas da ordem de serviço devem ser exibidas', () => {
 })
 
 given('gero o recibo das amostras', () => {
-  cy.get('.list-checkbox').click()
+  cy.get('.list-checkbox').each($el => {
+    cy.wrap($el).click()
+  })
 })
 
 given('eu imprimo a etiqueta das amostras processadas', () => {
