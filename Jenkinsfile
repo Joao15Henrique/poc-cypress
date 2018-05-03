@@ -31,3 +31,19 @@ node {
         }
     }
 }
+
+def call(Closure body) {
+
+    // evaluate the body block, and collect configuration into the object
+    def config = [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = config
+    body()
+
+    def buildImage = docker.image(config.image);
+    buildImage.pull()
+
+    buildImage.inside(config.args) {
+        sh "${config.command}"
+    }
+}
