@@ -1,7 +1,6 @@
 #!groovy
 
-def userInput
-node {
+pipeline {
     agent {
         docker { image "cypress/base:8" }
     }
